@@ -1,0 +1,3 @@
+discord.py
+unalix-rev==0.9.1
+dotenv
