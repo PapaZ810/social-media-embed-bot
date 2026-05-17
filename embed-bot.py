@@ -42,9 +42,9 @@ async def on_message(message):
             # > Copy Link on context menu would create a link ending in &
             # Pasting this link into Discord would then trigger the bot since the cleaned link removed the &, 
             # even though the image link didn't have tracking parameters
-            if clear_url(url).strip('&') != url.strip('&') and -1 != base_urls.index(strip_url(url)):
+            if clear_url(url).strip('&') != url.strip('&') and strip_url(url) in base_urls:
                 cleaned.append(embed_url(clear_url(url)))
-            elif base_urls.index(strip_url(url)) != -1:
+            elif strip_url(url) in base_urls:
                 cleaned.append(embed_url(url))
             elif clear_url(url).strip('&') != url.strip('&'):
                 cleaned.append(clear_url(url))
