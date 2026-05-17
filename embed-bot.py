@@ -2,13 +2,14 @@ import re
 import os
 import discord
 from dotenv import load_dotenv
-from unalix import clear_url
+from unalix import clear_url, unshort_url
 
 intents = discord.Intents.default()
 intents.message_content = True
 
 client = discord.Client(intents=intents)
 
+short_urls = ['youtu.be', 'bit.ly', 'tiny.cc', 't.co','g.co','tinyurl.com','t.me','x.co']
 base_urls = ['www.facebook.com', 'www.instagram.com', 'twitter.com', 'x.com', 'www.reddit.com']
 replacement_urls = {'www.facebook.com':'facebed.com', 'www.instagram.com':'www.kkinstagram.com', 'x.com':'nitter.net', 'twitter.com':'nitter.net', 'www.reddit.com':'www.rxddit.com'}
 
@@ -42,7 +43,12 @@ async def on_message(message):
             # > Copy Link on context menu would create a link ending in &
             # Pasting this link into Discord would then trigger the bot since the cleaned link removed the &, 
             # even though the image link didn't have tracking parameters
-            if clear_url(url).strip('&') != url.strip('&') and strip_url(url) in base_urls:
+            print("[DEBUG]Processing url: " + url)
+            if strip_url(url) in short_urls and strip_url(unshort_url(url)) in base_urls:
+                cleaned.append(embed_url(unshort_url(url)))
+            elif strip_url(url) in short_urls:
+                cleaned.append(unshort_url(url))
+            elif clear_url(url).strip('&') != url.strip('&') and strip_url(url) in base_urls:
                 cleaned.append(embed_url(clear_url(url)))
             elif strip_url(url) in base_urls:
                 cleaned.append(embed_url(url))
@@ -51,6 +57,7 @@ async def on_message(message):
 
         # Send message and add reactions
         if cleaned:
+            print("[DEBUG]Processed urls:" + " ".join(map(str, cleaned)))
             # Suppress embeds for original message to avoid visual clutter
             if permissions.manage_messages:
                 await message.edit(suppress=True)
