@@ -44,7 +44,7 @@ async def on_message(message):
             # even though the image link didn't have tracking parameters
             if clear_url(url).strip('&') != url.strip('&') and -1 != base_urls.index(strip_url(url)):
                 cleaned.append(embed_url(clear_url(url)))
-            elif base_urls.contains(url):
+            elif base_urls.index(strip_url(url)) != -1:
                 cleaned.append(embed_url(url))
             elif clear_url(url).strip('&') != url.strip('&'):
                 cleaned.append(clear_url(url))
