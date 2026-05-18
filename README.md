@@ -1,4 +1,8 @@
 <h1 align="center">SocialMediaEmbed&ClearURLs Bot</h1>
+
+<p align="center">
+  <a href="https://discord.com/oauth2/authorize?client_id=1505286480795406467&permissions=92224&integration_type=0&scope=bot">Click here to add the bot to your server!</a>
+</p>
 <br>
 This bot does the exact same thing as the ClearURLs Discord bot that danieltzting made except this bot also swaps some social media website links for ones that better embed in Discord. At current, those links and the dictionary that the bot pulls from are just raw data structures in the python, but I hope to make the list configurable via slash commands. This bot also has the capability to unshorten urls. It will not attempt to unshorten urls on every link, there is also a list of urls that it will attempt to unshorten. For example: 
 
