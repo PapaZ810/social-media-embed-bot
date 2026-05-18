@@ -57,7 +57,7 @@ async def on_message(message):
 
         # Send message and add reactions
         if cleaned:
-            print("[DEBUG]Processed urls:" + " ".join(map(str, cleaned)))
+            print("[DEBUG]Processed urls: " + " ".join(map(str, cleaned)))
             # Suppress embeds for original message to avoid visual clutter
             if permissions.manage_messages:
                 await message.edit(suppress=True)
