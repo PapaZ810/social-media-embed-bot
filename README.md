@@ -1,10 +1,11 @@
 <h1 align="center">SocialMediaEmbed&ClearURLs Bot</h1>
 <br>
-
 This bot does the exact same thing as the ClearURLs Discord bot that danieltzting made except this bot also swaps some social media website links for ones that better embed in Discord. At current, those links and the dictionary that the bot pulls from are just raw data structures in the python, but I hope to make the list configurable via slash commands. This bot also has the capability to unshorten urls. It will not attempt to unshorten urls on every link, there is also a list of urls that it will attempt to unshorten. For example: 
+
 - youtu.be will be unshortened to youtube.com
 - t.me will be unshortened to telegram.org
 - bit.ly will be unshortened to whatever it links to.
+
 I built this bot because I really hate Meta/Facebook, their horrible discord embeds and their awful login requirements and I hated remembering all of the services that would provide nice embeds in discord. So, this bot does the remembering for me!
 This bot is modified from danielzting's [ClearURLs discord bot](https://github.com/danielzting/clearurls-discord-bot) as the functionality and detection of links is similar. I figured it made sense to just have one bot do all of the link manipulation instead of having multiple bots both doing link manipulation for the same thing. 
 
