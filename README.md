@@ -13,6 +13,7 @@ This bot does the exact same thing as the ClearURLs Discord bot that danieltztin
 
 I built this bot because I really hate Meta/Facebook, their horrible discord embeds and their awful login requirements and I hated remembering all of the services that would provide nice embeds in discord. So, this bot does the remembering for me!
 This bot is modified from danielzting's [ClearURLs discord bot](https://github.com/danielzting/clearurls-discord-bot) as the functionality and detection of links is similar. I figured it made sense to just have one bot do all of the link manipulation instead of having multiple bots both doing link manipulation for the same thing. 
+Public instance is running on a Proxmox node with an i5-7500. I make no guarantees of uptime.
 
 ## Permissions
 The bot's permissions system is designed to be granular, minimal, and gracefully degrade in the absence of those unnecessary for basic function.
